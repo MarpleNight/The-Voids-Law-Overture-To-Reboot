@@ -1,0 +1,14 @@
+{
+
+  "the_voids_law_overture_to_reboot.configuration.title": "The-Voids-Law-Overture-Reboot Configs",
+  "the_voids_law_overture_to_reboot.configuration.section.the_voids_law_overture_to_reboot.common.toml": "The-Voids-Law-Overture-Reboot Configs",
+  "the_voids_law_overture_to_reboot.configuration.section.the_voids_law_overture_to_reboot.common.toml.title": "The-Voids-Law-Overture-Reboot Configs",
+  "the_voids_law_overture_to_reboot.configuration.items": "Item List",
+  "the_voids_law_overture_to_reboot.configuration.logDirtBlock": "Log Dirt Block",
+  "the_voids_law_overture_to_reboot.configuration.magicNumberIntroduction": "Magic Number Text",
+  "the_voids_law_overture_to_reboot.configuration.magicNumber": "Magic Number",
+
+
+  "item.the_voids_law_overture_to_reboot.ModItems.Pepsi": "Pepsi",
+  "item.the_voids_law_overture_to_reboot.ModItems.cardboard": "Cardboard"
+}
