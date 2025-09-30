@@ -9,6 +9,11 @@
   "the_voids_law_overture_to_reboot.configuration.magicNumber": "Magic Number",
 
 
-  "item.the_voids_law_overture_to_reboot.ModItems.Pepsi": "Pepsi",
-  "item.the_voids_law_overture_to_reboot.ModItems.cardboard": "Cardboard"
+  "item.the_voids_law_overture_to_reboot.ModItems.pepsi": "Pepsi",
+  "item.the_voids_law_overture_to_reboot.ModItems.cardboard": "Cardboard",
+  "key.the_voids_law_overture_to_reboot.open_attributes": "Open Attributes",
+  "key.categories.the_voids_law_overture_to_reboot": "The Voids Law Overture To Reboot",
+  "screen.the_voids_law_overture_to_reboot.attributes_button": "Attributes",
+  "screen.the_voids_law_overture_to_reboot.attributes": "Player Attributes"
 }
+

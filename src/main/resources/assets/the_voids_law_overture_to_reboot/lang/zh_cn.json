@@ -1,5 +1,18 @@
 {
-  "item.the_voids_law_overture_to_reboot.ModItems.Pepsi": "百事",
-  "item.the_voids_law_overture_to_reboot.ModItems.cardboard": "纸板"
 
+  "the_voids_law_overture_to_reboot.configuration.title": "the-voids-law-overture-reboot 配置",
+  "the_voids_law_overture_to_reboot.configuration.section.the_voids_law_overture_to_reboot.common.toml": "the-voids-law-overture-reboot 配置",
+  "the_voids_law_overture_to_reboot.configuration.section.the_voids_law_overture_to_reboot.common.toml.title": "the-voids-law-overture-reboot 配置",
+  "the_voids_law_overture_to_reboot.configuration.items": "项目列表",
+  "the_voids_law_overture_to_reboot.configuration.logDirtBlock": "原木污垢块",
+  "the_voids_law_overture_to_reboot.configuration.magicNumberIntroduction": "幻数文本",
+  "the_voids_law_overture_to_reboot.configuration.magicNumber": "幻数",
+
+
+  "item.the_voids_law_overture_to_reboot.ModItems.pepsi": "百事可乐",
+  "item.the_voids_law_overture_to_reboot.ModItems.cardboard": "纸板",
+  "key.the_voids_law_overture_to_reboot.open_attributes": "打开属性",
+  "key.categories.the_voids_law_overture_to_reboot": "《虚空法》重启序曲",
+  "screen.the_voids_law_overture_to_reboot.attributes_button": "属性",
+  "screen.the_voids_law_overture_to_reboot.attributes": "玩家属性"
 }
