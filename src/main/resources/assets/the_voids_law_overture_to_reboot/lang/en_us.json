@@ -4,7 +4,6 @@
   "the_voids_law_overture_to_reboot.configuration.section.the_voids_law_overture_to_reboot.common.toml": "The-Voids-Law-Overture-Reboot Configs",
   "the_voids_law_overture_to_reboot.configuration.section.the_voids_law_overture_to_reboot.common.toml.title": "The-Voids-Law-Overture-Reboot Configs",
   "the_voids_law_overture_to_reboot.configuration.items": "Item List",
-  "the_voids_law_overture_to_reboot.configuration.logDirtBlock": "Log Dirt Block",
   "the_voids_law_overture_to_reboot.configuration.magicNumberIntroduction": "Magic Number Text",
   "the_voids_law_overture_to_reboot.configuration.magicNumber": "Magic Number",
 
@@ -15,6 +14,34 @@
   "key.the_voids_law_overture_to_reboot.open_attributes": "Open Attributes Screen",
   "key.categories.the_voids_law_overture_to_reboot": "The Void's Law Overture To Reboot",
   "screen.the_voids_law_overture_to_reboot.attributes": "Player Attributes",
-  "attribute.name.generic.extra_health": "Extra Health"
+  "attribute.name.generic.extra_health": "Extra Health",
+  "gui.the_voids_law_overture_to_reboot.attributes": "Character Attributes"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

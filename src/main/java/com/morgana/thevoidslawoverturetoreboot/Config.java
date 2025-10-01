@@ -39,4 +39,28 @@ public class Config {
     private static boolean validateItemName(final Object obj) {
         return obj instanceof String itemName && BuiltInRegistries.ITEM.containsKey(ResourceLocation.parse(itemName));
     }
+
+
+
+    public static final ModConfigSpec.IntValue EXP_PER_MOB_KILL;
+    public static final ModConfigSpec.IntValue EXP_PER_ORE_MINED;
+    public static final ModConfigSpec.IntValue BASE_EXP_TO_LEVEL_UP;
+
+    static {
+        BUILDER.push("Attribute System Config");
+
+        EXP_PER_MOB_KILL = BUILDER
+                .comment("Experience gained per mob kill")
+                .defineInRange("expPerMobKill", 10, 1, 100);
+
+        EXP_PER_ORE_MINED = BUILDER
+                .comment("Experience gained per ore mined")
+                .defineInRange("expPerOreMined", 5, 1, 50);
+
+        BASE_EXP_TO_LEVEL_UP = BUILDER
+                .comment("Base experience required to level up")
+                .defineInRange("baseExpToLevelUp", 100, 50, 1000);
+
+        BUILDER.pop();
+    }
 }
