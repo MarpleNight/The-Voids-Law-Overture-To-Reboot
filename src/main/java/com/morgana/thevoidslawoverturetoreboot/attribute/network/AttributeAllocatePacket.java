@@ -2,6 +2,7 @@ package com.morgana.thevoidslawoverturetoreboot.attribute.network;
 
 import com.morgana.thevoidslawoverturetoreboot.TheVoidsLawOvertureReboot;
 import com.morgana.thevoidslawoverturetoreboot.attribute.attachment.ModAttachmentTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -30,7 +31,8 @@ public record AttributeAllocatePacket(String attribute) implements CustomPacketP
 
             boolean success = attributeData.allocateSkillPoint(packet.attribute(), player);
             if (success) {
-                var syncPacket = new AttributeDataSyncPacket(attributeData.serializeNBT());
+                // 使用新的方法名
+                var syncPacket = new AttributeDataSyncPacket(attributeData.toNBT());
                 PacketDistributor.sendToAllPlayers(syncPacket);
             }
         });

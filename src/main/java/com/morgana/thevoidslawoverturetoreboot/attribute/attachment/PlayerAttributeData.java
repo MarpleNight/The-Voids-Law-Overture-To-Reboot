@@ -1,7 +1,5 @@
 package com.morgana.thevoidslawoverturetoreboot.attribute.attachment;
 
-import com.mojang.serialization.DataResult;
-import com.mojang.serialization.DynamicOps;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -16,6 +14,8 @@ public class PlayerAttributeData {
     private int strength = 1;
     private int agility = 1;
     private int intelligence = 1;
+
+    public PlayerAttributeData() {}
 
     public int getExpToNextLevel() {
         return 100 * level;
@@ -85,29 +85,6 @@ public class PlayerAttributeData {
         return true;
     }
 
-    // NBT序列化
-    public static CompoundTag serializeNBT() {
-        CompoundTag tag = new CompoundTag();
-        tag.putInt("level", level);
-        tag.putInt("experience", experience);
-        tag.putInt("skillPoints", skillPoints);
-        tag.putInt("vitality", vitality);
-        tag.putInt("strength", strength);
-        tag.putInt("agility", agility);
-        tag.putInt("intelligence", intelligence);
-        return tag;
-    }
-
-    public void deserializeNBT(CompoundTag tag) {
-        level = tag.getInt("level");
-        experience = tag.getInt("experience");
-        skillPoints = tag.getInt("skillPoints");
-        vitality = tag.getInt("vitality");
-        strength = tag.getInt("strength");
-        agility = tag.getInt("agility");
-        intelligence = tag.getInt("intelligence");
-    }
-
     // Getters
     public int getLevel() { return level; }
     public int getExperience() { return experience; }
@@ -116,6 +93,15 @@ public class PlayerAttributeData {
     public int getStrength() { return strength; }
     public int getAgility() { return agility; }
     public int getIntelligence() { return intelligence; }
+
+    // Setters
+    public void setLevel(int level) { this.level = level; }
+    public void setExperience(int experience) { this.experience = experience; }
+    public void setSkillPoints(int skillPoints) { this.skillPoints = skillPoints; }
+    public void setVitality(int vitality) { this.vitality = vitality; }
+    public void setStrength(int strength) { this.strength = strength; }
+    public void setAgility(int agility) { this.agility = agility; }
+    public void setIntelligence(int intelligence) { this.intelligence = intelligence; }
 
     public String getVitalityBonus() { return "+" + ((vitality - 1) * 2) + " 生命值"; }
     public String getStrengthBonus() { return "+" + ((strength - 1) * 0.5) + " 攻击伤害"; }
@@ -127,4 +113,27 @@ public class PlayerAttributeData {
         return expToNext > 0 ? (float) experience / expToNext : 0.0f;
     }
 
+    // 序列化方法 - 确保这些方法存在
+    public CompoundTag toNBT() {
+        CompoundTag tag = new CompoundTag();
+        tag.putInt("level", this.level);
+        tag.putInt("experience", this.experience);
+        tag.putInt("skillPoints", this.skillPoints);
+        tag.putInt("vitality", this.vitality);
+        tag.putInt("strength", this.strength);
+        tag.putInt("agility", this.agility);
+        tag.putInt("intelligence", this.intelligence);
+        return tag;
+    }
+
+    // 反序列化方法 - 确保这些方法存在
+    public void fromNBT(CompoundTag tag) {
+        this.level = tag.getInt("level");
+        this.experience = tag.getInt("experience");
+        this.skillPoints = tag.getInt("skillPoints");
+        this.vitality = tag.getInt("vitality");
+        this.strength = tag.getInt("strength");
+        this.agility = tag.getInt("agility");
+        this.intelligence = tag.getInt("intelligence");
+    }
 }

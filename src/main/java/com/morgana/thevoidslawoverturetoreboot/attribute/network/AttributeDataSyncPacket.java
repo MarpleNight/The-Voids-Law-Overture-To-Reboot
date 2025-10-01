@@ -27,7 +27,9 @@ public record AttributeDataSyncPacket(CompoundTag data) implements CustomPacketP
         context.enqueueWork(() -> {
             var player = context.player();
             var attributeData = player.getData(ModAttachmentTypes.PLAYER_ATTRIBUTES);
-            attributeData.deserializeNBT(packet.data());
+
+            // 使用新的方法名
+            attributeData.fromNBT(packet.data());
         });
     }
 }

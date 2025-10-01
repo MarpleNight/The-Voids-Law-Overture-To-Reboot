@@ -13,12 +13,5 @@ public class ModAttachmentTypes {
 
     public static final Supplier<AttachmentType<PlayerAttributeData>> PLAYER_ATTRIBUTES =
             ATTACHMENT_TYPES.register("player_attributes",
-                    () -> AttachmentType.builder(() -> new PlayerAttributeData())
-                            .serialize(PlayerAttributeData::serializeNBT)
-                            .deserialize(tag -> {
-                                PlayerAttributeData data = new PlayerAttributeData();
-                                data.deserializeNBT(tag);
-                                return data;
-                            })
-                            .build());
+                    () -> AttachmentType.builder(() -> new PlayerAttributeData()).build());
 }

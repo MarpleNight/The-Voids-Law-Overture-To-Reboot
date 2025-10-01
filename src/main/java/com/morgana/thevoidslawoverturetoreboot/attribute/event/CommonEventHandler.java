@@ -39,7 +39,8 @@ public class CommonEventHandler {
         attributeData.addExperience(expAmount, player);
 
         if (!player.level().isClientSide() && (oldLevel != attributeData.getLevel())) {
-            var packet = new AttributeDataSyncPacket(attributeData.serializeNBT());
+            // 使用新的方法名
+            var packet = new AttributeDataSyncPacket(attributeData.toNBT());
             PacketDistributor.sendToAllPlayers(packet);
         }
     }
