@@ -24,13 +24,10 @@ public class ClientEventHandler {
             AttributeTabButton attributeButton = new AttributeTabButton(
                     x, y, attributeTabOpen,
                     button -> {
-                        attributeTabOpen = !attributeTabOpen;
-                        // 重新初始化屏幕来更新按钮状态
-                        inventoryScreen.init(
-                                inventoryScreen.getMinecraft(),
-                                inventoryScreen.width,
-                                inventoryScreen.height
-                        );
+                        // 切换状态并打开属性面板
+                        attributeTabOpen = true;
+                        // 使用Minecraft实例打开属性界面
+                        inventoryScreen.getMinecraft().setScreen(new AttributeTabScreen());
                     }
             );
 
