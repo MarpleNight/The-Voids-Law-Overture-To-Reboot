@@ -1,5 +1,8 @@
 package com.morgana.thevoidslawoverturetoreboot.attribute.attachment;
 
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.DynamicOps;
+import com.morgana.thevoidslawoverturetoreboot.Config;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -18,18 +21,25 @@ public class PlayerAttributeData {
     public PlayerAttributeData() {}
 
     public int getExpToNextLevel() {
-        return 100 * level;
+        return Config.BASE_EXP_TO_LEVEL_UP.get() * level;
+    }
+
+    public float getIntelligenceExpMultiplier() {
+        return 1.0f + (intelligence - 1) * 0.05f;
     }
 
     public void addExperience(int amount, Player player) {
-        this.experience += amount;
+        float multiplier = getIntelligenceExpMultiplier();
+        int actualAmount = (int) (amount * multiplier);
+
+        this.experience += actualAmount;
         boolean leveledUp = false;
 
-        while (this.experience >= getExpToNextLevel()) {
+        while (experience >= getExpToNextLevel()) {
             this.experience -= getExpToNextLevel();
             this.level++;
-            this.skillPoints++;
             leveledUp = true;
+            this.skillPoints++;
         }
 
         if (leveledUp) {
@@ -106,14 +116,44 @@ public class PlayerAttributeData {
     public String getVitalityBonus() { return "+" + ((vitality - 1) * 2) + " 生命值"; }
     public String getStrengthBonus() { return "+" + ((strength - 1) * 0.5) + " 攻击伤害"; }
     public String getAgilityBonus() { return "+" + ((agility - 1) * 0.5) + "% 移动速度"; }
-    public String getIntelligenceBonus() { return "待开发"; }
+    public String getIntelligenceBonus() { return "+" + ((intelligence - 1) * 5) + "% 经验获取"; }
 
     public float getExperiencePercent() {
         int expToNext = getExpToNextLevel();
         return expToNext > 0 ? (float) experience / expToNext : 0.0f;
     }
 
-    // 序列化方法 - 确保这些方法存在
+    public void increaseStrength() {
+        this.strength++;
+        this.skillPoints--;
+    }
+
+    public void increaseAgility() {
+        this.agility++;
+        this.skillPoints--;
+    }
+
+    public void increaseIntelligence() {
+        this.intelligence++;
+        this.skillPoints--;
+    }
+
+    public void increaseVitality() {
+        this.vitality++;
+        this.skillPoints--;
+    }
+
+    public void fromNBT(CompoundTag tag) {
+        this.level = tag.getInt("level");
+        this.experience = tag.getInt("experience");
+        this.skillPoints = tag.getInt("skillPoints");
+        this.vitality = tag.getInt("vitality");
+        this.strength = tag.getInt("strength");
+        this.agility = tag.getInt("agility");
+        this.intelligence = tag.getInt("intelligence");
+    }
+
+
     public CompoundTag toNBT() {
         CompoundTag tag = new CompoundTag();
         tag.putInt("level", this.level);
@@ -124,16 +164,5 @@ public class PlayerAttributeData {
         tag.putInt("agility", this.agility);
         tag.putInt("intelligence", this.intelligence);
         return tag;
-    }
-
-    // 反序列化方法 - 确保这些方法存在
-    public void fromNBT(CompoundTag tag) {
-        this.level = tag.getInt("level");
-        this.experience = tag.getInt("experience");
-        this.skillPoints = tag.getInt("skillPoints");
-        this.vitality = tag.getInt("vitality");
-        this.strength = tag.getInt("strength");
-        this.agility = tag.getInt("agility");
-        this.intelligence = tag.getInt("intelligence");
     }
 }
